@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Team Index', type: :feature do
   before do
-    @team_1 = Team.create!(nickname: "Men's Regional", hometown: "Houston", sport: "Hockey")
-    @team_2 = Team.create!(nickname: "Teamsters", hometown: "Denver", sport: "Basketball")
+    @team_1 = Team.create!(nickname: "Lightning", hometown: "Tampa")
+    @team_2 = Team.create!(nickname: "Avalanche", hometown: "Denver")
 
     @player_1 = @team_1.players.create!(name: "Jim", age: 37)
     @player_2 = @team_1.players.create!(name: "Tim", age: 27)
@@ -52,8 +52,3 @@ RSpec.describe 'Team Index', type: :feature do
     end
   end
 end
-# As a user
-# When I visit the Team Index
-# Then I see the name and hometown of all Teams
-# And under each team I see the names and ages of all its players
-# ```
