@@ -57,13 +57,10 @@ RSpec.describe 'Team Index', type: :feature do
     end
     describe 'sort' do
       it 'sorts by average team age' do
-        save_and_open_page
+
         expect(@team_1.nickname).to appear_before(@team_3.nickname)
         expect(@team_3.nickname).to appear_before(@team_2.nickname)
       end
     end
   end
 end
-# As a user
-# When I visit the team index
-# Then I see that all teams are sorted by their average player age from highest to lowest
