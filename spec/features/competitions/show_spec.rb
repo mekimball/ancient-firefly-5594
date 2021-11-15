@@ -37,6 +37,11 @@ RSpec.describe 'Competition Show Page', type: :feature do
       expect(page).to_not have_content(@team_3.nickname)
       expect(page).to_not have_content(@team_3.hometown)
     end
+
+    it 'shows teams average age' do
+      expect(page).to have_content("#{@team_1.nickname}'s Average Age: #{@team_1.average_age}")
+      expect(page).to have_content("#{@team_2.nickname}'s Average Age: #{@team_2.average_age}")
+    end
   end
 end
 # As a user
