@@ -16,6 +16,10 @@ RSpec.describe 'Competition Show Page', type: :feature do
     @player_5 = @team_2.players.create!(name: "Rob", age: 24)
     @player_6 = @team_2.players.create!(name: "Lob", age: 20)
 
+    @player_7 = @team_3.players.create!(name: "Tony", age: 21)
+    @player_8 = @team_3.players.create!(name: "Toni", age: 22)
+    @player_9 = @team_3.players.create!(name: "Tone", age: 23)
+
     CompetitionTeam.create!(competition: @competition_1, team: @team_1)
     CompetitionTeam.create!(competition: @competition_1, team: @team_2)
 
@@ -42,10 +46,19 @@ RSpec.describe 'Competition Show Page', type: :feature do
       expect(page).to have_content("#{@team_1.nickname}'s Average Age: #{@team_1.average_age}")
       expect(page).to have_content("#{@team_2.nickname}'s Average Age: #{@team_2.average_age}")
     end
+
+    describe 'adding a team' do
+      it 'has a form to add an existing team' do
+
+        expect(page).to_not have_content(@team_3.nickname)
+
+        fill_in 'team', with: @team_3.nickname
+
+        click_on 'Submit'
+        save_and_open_page
+        
+        expect(page).to have_content(@team_3.nickname)
+      end
+    end
   end
 end
-# As a user
-# When I visit a competition's show page
-# Then I see the competition's name, location, and sport
-# And I see the name and hometown of all teams in this competition
-# And I see the average age of all players in the competition

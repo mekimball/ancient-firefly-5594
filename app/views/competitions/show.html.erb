@@ -6,3 +6,10 @@
   <p> <%= team.hometown %> <%= team.nickname %></p> 
   <p> <%= team.nickname %>'s Average Age: <%= team.average_age %></p>
 <% end %>
+
+<%= form_with url: competition_teams_path, local: true do |form| %>
+<%= form.label :team %>
+<%= form.text_field :team %>
+<%= form.button "Submit", type: "submit", name: "competition_id", value: "#{@competition.id}" %>
+
+<% end %>
