@@ -55,7 +55,6 @@ RSpec.describe 'Competition Show Page', type: :feature do
         fill_in 'team', with: @team_3.nickname
 
         click_on 'Submit'
-        save_and_open_page
         
         expect(page).to have_content(@team_3.nickname)
       end

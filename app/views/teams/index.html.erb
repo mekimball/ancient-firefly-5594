@@ -1,7 +1,8 @@
-<% @teams.each do |team| %>
+<% @teams.order_age.each do |team| %>
 <div id="id-<%= team.id %>">
   <h3>Team Name: <%= team.nickname %></h3>
   <h4> Team Hometown: <%= team.hometown %></h4>
+  <h4> Team Average Age: <%= team.average_age %></h4>
   <h4>Players:</h4>
   <% team.players.each do |player| %>
     <p> Name: <%= player.name %> Age: <%= player.age %></p>
